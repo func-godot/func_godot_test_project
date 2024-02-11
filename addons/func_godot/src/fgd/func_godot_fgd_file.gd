@@ -12,13 +12,11 @@ extends Resource
 		return export_file # TODO Converter40 Non existent get function
 	set(new_export_file):
 		if new_export_file != export_file:
-			do_export_file(model_key_word as bool)
+			do_export_file(model_key_word_supported)
 
 func do_export_file(model_key_supported: bool = true) -> void:
 	if Engine.is_editor_hint() and get_fgd_classes().size() > 0:
-		var config_folder: String = map_editor_game_config_folder;
-		if config_folder.is_empty():
-			config_folder = FuncGodotProjectConfig.get_setting(FuncGodotProjectConfig.PROPERTY.MAP_EDITOR_GAME_CONFIG_FOLDER)
+		var config_folder: String = FuncGodotProjectConfig.get_setting(FuncGodotProjectConfig.PROPERTY.MAP_EDITOR_GAME_CONFIG_FOLDER) as String
 		if config_folder.is_empty():
 			print("Skipping export: No game config folder")
 			return
@@ -35,13 +33,10 @@ func do_export_file(model_key_supported: bool = true) -> void:
 
 @export_group("Map Editor")
 
-## The directory to save the FGD file output to. Overrides the [FuncGodotProjectConfig] setting.
-@export_global_dir var map_editor_game_config_folder : String
-
 ## Some map editors do not support the "model" key word and require the "studio" key word instead. 
 ## If you get errors in your map editor, try changing this setting. 
 ## This setting is overridden when the FGD is built via the Game Config resource.
-@export_enum("studio","model") var model_key_word: int = 1
+@export var model_key_word_supported: bool = true
 
 @export_group("FGD")
 
