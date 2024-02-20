@@ -30,13 +30,13 @@ signal unwrap_uv2_complete()
 ## Map path used by code. Do it this way to support both global and local paths.
 var _map_file_internal: String = ""
 
-## Map settings resource that defines map build scale, textures location, and more
+## Map settings resource that defines map build scale, textures location, and more.
 @export var map_settings: FuncGodotMapSettings = load("res://addons/func_godot/func_godot_default_map_settings.tres")
 
 @export_category("Build")
-## If true, print profiling data before and after each build step
+## If true, print profiling data before and after each build step.
 @export var print_profiling_data: bool = false
-## If true, stop the whole editor until build is complete
+## If true, stop the whole editor until build is complete.
 @export var block_until_complete: bool = false
 ## How many nodes to set the owner of, or add children of, at once. Higher values may lead to quicker build times, but a less responsive editor.
 @export var set_owner_batch_size: int = 1000
@@ -459,11 +459,6 @@ func resolve_trenchbroom_group_hierarchy() -> void:
 		if not ('_tb_id' in properties or '_tb_group' in properties or '_tb_layer' in properties):
 			continue
 		
-		if not 'classname' in properties: 
-			continue
-		
-		var classname = properties['classname']
-		
 		# identify children
 		if '_tb_group' in properties or '_tb_layer' in properties: 
 			child_entities[node_idx] = node
@@ -852,6 +847,9 @@ func set_owners_complete() -> void:
 ## Apply Map File properties to [Node3D] instances, transferring Map File dictionaries to [Node3D.func_godot_properties]
 ## and then calling the appropriate callbacks.
 func apply_properties_and_finish() -> void:
+	# Array of all entities' properties
+	var properties_arr: Array[Dictionary] = []
+
 	for entity_idx in range(0, entity_nodes.size()):
 		var entity_node: Node = entity_nodes[entity_idx] as Node
 		if not entity_node:
@@ -905,7 +903,9 @@ func apply_properties_and_finish() -> void:
 									push_error("Invalid Color format for \'" + property + "\' in entity \'" + classname + "\': " + prop_string)
 									properties[property] = prop_color
 							TYPE_DICTIONARY:
-								properties[property] = prop_string.to_int()
+								var prop_desc = entity_definition.class_property_descriptions[property]
+								if prop_desc is Array and prop_desc.size() > 1 and prop_desc[1] is int:
+									properties[property] = prop_string.to_int()
 							TYPE_ARRAY:
 								properties[property] = prop_string.to_int()
 							TYPE_VECTOR2:
@@ -958,7 +958,7 @@ func apply_properties_and_finish() -> void:
 						# Choices
 						elif prop_default is Dictionary:
 							var prop_desc = entity_definition.class_property_descriptions[property]
-							if prop_desc is Array and prop_desc.size() > 1 and prop_desc[1] is int:
+							if prop_desc is Array and prop_desc.size() > 1 and (prop_desc[1] is int or prop_desc[1] is String):
 								properties[property] = prop_desc[1]
 							else:
 								properties[property] = 0
@@ -968,16 +968,18 @@ func apply_properties_and_finish() -> void:
 						
 		if 'func_godot_properties' in entity_node:
 			entity_node.func_godot_properties = properties
+		
+		properties_arr.append(properties.duplicate(true))
 	
 	for entity_idx in range(0, entity_nodes.size()):
 		var entity_node: Node = entity_nodes[entity_idx] as Node
 		if entity_node and entity_node.has_method("_func_godot_apply_properties"):
-			entity_node._func_godot_apply_properties()
+			entity_node._func_godot_apply_properties(properties_arr[entity_idx])
 	
 	for entity_idx in range(0, entity_nodes.size()):
 		var entity_node: Node = entity_nodes[entity_idx] as Node
 		if entity_node and entity_node.has_method("_func_godot_build_complete"):
-			entity_node._func_godot_build_complete()
+			entity_node.call_deferred("_func_godot_build_complete")
 
 # Cleanup after build is finished (internal)
 func _build_complete():

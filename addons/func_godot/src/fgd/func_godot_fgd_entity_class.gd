@@ -13,9 +13,10 @@ var prefix: String = ""
 ## Entity description that appears in the map editor. Not required.
 @export_multiline var description : String = ""
 
+## Entity does not get written to the exported FGD. Entity is only used for [FuncGodotMap] build process.
 @export var func_godot_internal : bool = false
 
-## FuncGodotFGDBaseClass resources to inherit class properties and class descriptions from.
+## FuncGodotFGDBaseClass resources to inherit [member class_properties] and [member class_descriptions] from.
 @export var base_classes: Array[Resource] = []
 
 ## Key value pair properties that will appear in the map editor. After building the FuncGodotMap in Godot, these properties will be added to a Dictionary that gets applied to the generated Node, as long as that Node is a tool script with an exported `func_godot_properties` Dictionary.
@@ -107,11 +108,11 @@ func build_def_text(model_key_supported: bool = true) -> String:
 			# Optional default value for Choices can be set up as [String, int]
 			if value is Dictionary and class_property_descriptions[prop] is Array:
 				var prop_arr: Array = class_property_descriptions[prop]
-				if prop_arr.size() > 1 and prop_arr[1] is int:
+				if prop_arr.size() > 1 and (prop_arr[1] is int or prop_arr[1] is String):
 					prop_description = "\"" + prop_arr[0] + "\" : " + str(prop_arr[1])
 				else:
 					prop_description = "\"\" : 0"
-					printerr(str(prop) + " has incorrect description format. Should be [String description, int default value].")
+					printerr(str(prop) + " has incorrect description format. Should be [String description, int / String default value].")
 			else:
 				prop_description = "\"" + class_property_descriptions[prop] + "\""
 		else:
@@ -130,8 +131,8 @@ func build_def_text(model_key_supported: bool = true) -> String:
 			TYPE_BOOL:
 				prop_type = "choices"
 				prop_val = FuncGodotUtil.newline() + "\t[" + FuncGodotUtil.newline()
-				prop_val += "\t\t" + str(0) + " : \"False\"" + FuncGodotUtil.newline()
-				prop_val += "\t\t" + str(1) + " : \"True\"" + FuncGodotUtil.newline()
+				prop_val += "\t\t" + str(0) + " : \"No\"" + FuncGodotUtil.newline()
+				prop_val += "\t\t" + str(1) + " : \"Yes\"" + FuncGodotUtil.newline()
 				prop_val += "\t]"
 			TYPE_VECTOR2, TYPE_VECTOR2I:
 				prop_type = "string"
