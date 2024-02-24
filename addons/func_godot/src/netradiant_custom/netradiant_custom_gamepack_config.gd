@@ -43,10 +43,10 @@ extends Resource
 ## Default scale of textures in NetRadiant Custom.
 @export var default_scale : String = "1.0"
 
-## Clip texture path that gets applied to weapclip and nodraw shaders
+## Clip texture path that gets applied to weapclip and nodraw shaders.
 @export var clip_texture: String = "textures/special/clip"
 
-## Skip texture path that gets applied to caulk and nodrawnonsolid shaders
+## Skip texture path that gets applied to caulk and nodrawnonsolid shaders.
 @export var skip_texture: String = "textures/special/skip"
 
 ## Generates completed text for a .shader file.
