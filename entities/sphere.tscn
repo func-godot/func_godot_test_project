@@ -1,0 +1,31 @@
+[gd_scene load_steps=6 format=3 uid="uid://bui88ucai7a0m"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_jlf1f"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_okr3g"]
+albedo_color = Color(1, 0.27451, 0, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_i6kna"]
+radius = 0.1
+height = 0.2
+radial_segments = 32
+rings = 16
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rlxqu"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_60kvr"]
+
+[node name="sphere" type="RigidBody3D"]
+
+[node name="mesh" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_jlf1f")
+surface_material_override/0 = SubResource("StandardMaterial3D_okr3g")
+
+[node name="mesh2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.568563)
+mesh = SubResource("SphereMesh_i6kna")
+surface_material_override/0 = SubResource("StandardMaterial3D_rlxqu")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_60kvr")
