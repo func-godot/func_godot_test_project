@@ -72,6 +72,7 @@
 "_tb_name" "Texas"
 "_tb_id" "1"
 "_tb_layer_sort_index" "0"
+"_tb_layer_omit_from_export" "1"
 }
 // entity 3
 {
