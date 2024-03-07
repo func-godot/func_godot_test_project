@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="FuncGodot R&D"
+config/name="FuncGodot"
 config/use_custom_user_dir=true
 config/custom_user_dir_name="func_godot"
 config/features=PackedStringArray("4.2", "Forward Plus")
