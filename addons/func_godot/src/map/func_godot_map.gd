@@ -754,11 +754,12 @@ func resolve_trenchbroom_group_hierarchy() -> void:
 		
 		# identify parents
 		if '_tb_id' in properties:
+			node.set_meta("_tb_type", properties['_tb_type'])
+			if properties['_tb_type'] == "_tb_group":
+				node.name = "group_" + str(properties['_tb_id'])
+			elif properties['_tb_type'] == "_tb_layer":
+				node.name = "layer_" + str(properties['_tb_layer_sort_index'])
 			if properties['_tb_name'] != "Unnamed":
-				if properties['_tb_type'] == "_tb_group":
-					node.name = "group_" + str(properties['_tb_id'])
-				elif properties['_tb_type'] == "_tb_layer":
-					node.name = "layer_" + str(properties['_tb_layer_sort_index'])
 				node.name = node.name + "_" + properties['_tb_name']
 			parent_entities[node_idx] = node
 	
@@ -906,7 +907,7 @@ func apply_properties_and_finish() -> void:
 										prop_vec[i] = prop_comps[i].to_int()
 								else:
 									push_error("Invalid Vector3i format for \'" + property + "\' in entity \'" + classname + "\': " + prop_string)
-									properties[property] = prop_vec
+								properties[property] = prop_vec
 							TYPE_COLOR:
 								var prop_color: Color = prop_default
 								var prop_comps: PackedStringArray = prop_string.split(" ")
@@ -917,7 +918,7 @@ func apply_properties_and_finish() -> void:
 									prop_color.a = 1.0
 								else:
 									push_error("Invalid Color format for \'" + property + "\' in entity \'" + classname + "\': " + prop_string)
-									properties[property] = prop_color
+								properties[property] = prop_color
 							TYPE_DICTIONARY:
 								var prop_desc = entity_definition.class_property_descriptions[property]
 								if prop_desc is Array and prop_desc.size() > 1 and prop_desc[1] is int:
@@ -955,7 +956,7 @@ func apply_properties_and_finish() -> void:
 										prop_vec[i] = prop_comps[i].to_int()
 								else:
 									push_error("Invalid Vector4i format for \'" + property + "\' in entity \'" + classname + "\': " + prop_string)
-									properties[property] = prop_vec
+								properties[property] = prop_vec
 							TYPE_NODE_PATH:
 								properties[property] = NodePath(prop_string)
 				
