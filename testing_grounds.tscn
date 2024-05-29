@@ -91,10 +91,10 @@ environment = SubResource("Environment_yua05")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.462784, 0.865874, -0.18998, -0.698406, -0.224146, 0.679697, 0.545949, 0.447236, 0.708463, 0, 8, 0)
-visible = false
 shadow_enabled = true
 
 [node name="omnilights" type="Node3D" parent="."]
+visible = false
 
 [node name="OmniLight3D" type="OmniLight3D" parent="omnilights"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
