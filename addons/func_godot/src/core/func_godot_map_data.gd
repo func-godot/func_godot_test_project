@@ -119,6 +119,7 @@ class FuncGodotFaceVertex:
 class FuncGodotFaceGeometry:
 	var vertices: Array[FuncGodotFaceVertex]
 	var indicies: Array[int]
+	var normal: Vector3
 
 class FuncGodotBrushGeometry:
 	var faces: Array[FuncGodotFaceGeometry]
