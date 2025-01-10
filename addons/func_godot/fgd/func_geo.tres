@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("2_8o081")
 spawn_type = 2
-origin_type = 0
+origin_type = 4
 build_visuals = true
 use_in_baked_light = true
 shadow_casting_setting = 1
@@ -17,12 +17,18 @@ collision_layer = 1
 collision_mask = 0
 collision_priority = 1.0
 collision_shape_margin = 0.04
+add_textures_metadata = false
+add_vertex_metadata = false
+add_face_position_metadata = false
+add_face_normal_metadata = false
+add_collision_shape_face_range_metadata = false
 classname = "func_geo"
 description = "Static collidable geometry. Builds a StaticBody3D with a MeshInstance3D, a single concave CollisionShape3D, and an OccluderInstance3D."
 func_godot_internal = false
 base_classes = Array[Resource]([ExtResource("1_5mwee")])
 class_properties = {}
 class_property_descriptions = {}
+auto_apply_to_matching_node_properties = false
 meta_properties = {
 "color": Color(0.8, 0.8, 0.8, 1)
 }
