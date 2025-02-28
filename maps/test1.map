@@ -3,11 +3,24 @@
 // entity 0
 {
 "classname" "worldspawn"
-"_tb_textures" "textures/;textures\special"
+"_tb_textures" "textures;textures/;textures\special"
 "origin" "0 0 0"
 "mapversion" "220"
 }
 // entity 1
+{
+"classname" "func_test"
+// brush 0
+{
+( -48 112 0 ) ( -48 113 0 ) ( -48 112 1 ) __TB_empty [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -48 112 0 ) ( -48 112 1 ) ( -47 112 0 ) __TB_empty [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -48 112 0 ) ( -47 112 0 ) ( -48 113 0 ) __TB_empty [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( 32 256 32 ) ( 32 257 32 ) ( 33 256 32 ) __TB_empty [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( 32 256 32 ) ( 33 256 32 ) ( 32 256 33 ) __TB_empty [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 32 256 32 ) ( 32 256 33 ) ( 32 257 32 ) __TB_empty [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+}
+}
+// entity 2
 {
 "classname" "func_group"
 "_tb_type" "_tb_layer"
@@ -15,7 +28,7 @@
 "_tb_id" "1"
 "_tb_layer_sort_index" "0"
 }
-// entity 2
+// entity 3
 {
 "classname" "func_geo"
 "_tb_layer" "1"
@@ -480,7 +493,7 @@
 ( -48 0 64 ) ( -48 0 128 ) ( -80 160 128 ) special/skip [ 0 1 0 -16 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 3
+// entity 4
 {
 "classname" "func_group"
 "_tb_type" "_tb_layer"
@@ -488,7 +501,7 @@
 "_tb_id" "2"
 "_tb_layer_sort_index" "1"
 }
-// entity 4
+// entity 5
 {
 "classname" "func_group"
 "_tb_type" "_tb_group"
@@ -498,7 +511,7 @@
 "_tb_transformation" "1 0 0 16 0 1 0 16 0 0 1 0 0 0 0 1"
 "_tb_layer" "2"
 }
-// entity 5
+// entity 6
 {
 "classname" "func_geo"
 "_tb_group" "3"
