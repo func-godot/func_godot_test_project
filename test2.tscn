@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=4 uid="uid://dyh1fsp6montq"]
 
-[ext_resource type="Script" path="res://addons/func_godot/src/map/func_godot_map.gd" id="1_cx4bo"]
+[ext_resource type="Script" uid="uid://cftux5so74ky1" path="res://addons/func_godot/src/map/func_godot_map.gd" id="1_cx4bo"]
 [ext_resource type="Resource" uid="uid://bkhxcqsquw1yg" path="res://addons/func_godot/func_godot_default_map_settings.tres" id="2_6t8ko"]
 [ext_resource type="Texture2D" uid="uid://cyg2snr1w5xw5" path="res://addons/func_godot/textures/default_texture.png" id="3_viy2g"]
 
