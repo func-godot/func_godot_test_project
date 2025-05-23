@@ -321,7 +321,7 @@ func run() -> void:
 						entity.center += entity.brushes[b].center
 					entity.center /= float(entity.brushes.size())
 	
-	var generate_vertices_task_id:= WorkerThreadPool.add_group_task(generate_vertices_task, map_data.entities.size(), 4, true)
+	var generate_vertices_task_id:= WorkerThreadPool.add_group_task(generate_vertices_task, map_data.entities.size(), -1, true)
 	WorkerThreadPool.wait_for_group_task_completion(generate_vertices_task_id)
 	
 	# wind face vertices
@@ -377,5 +377,5 @@ func run() -> void:
 					face_geo.indicies[i_count + 2] = i + 2
 					i_count += 3
 					
-	var index_faces_task_id:= WorkerThreadPool.add_group_task(index_faces_task, map_data.entities.size(), 4, true)
+	var index_faces_task_id:= WorkerThreadPool.add_group_task(index_faces_task, map_data.entities.size(), -1, true)
 	WorkerThreadPool.wait_for_group_task_completion(index_faces_task_id)

@@ -14,7 +14,7 @@ func _get_resource_type() -> String:
 	return 'Resource'
 
 func _get_recognized_extensions() -> PackedStringArray:
-	return PackedStringArray(['map'])
+	return PackedStringArray(['map', 'vmf'])
 	
 func _get_priority():
 	return 1.0
