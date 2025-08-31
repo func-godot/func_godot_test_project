@@ -11,6 +11,7 @@ config_version=5
 [application]
 
 config/name="FuncGodot"
+config/tags=PackedStringArray("3d", "func_godot", "tests")
 config/use_custom_user_dir=true
 config/custom_user_dir_name="func_godot"
 config/features=PackedStringArray("4.4", "Forward Plus")
