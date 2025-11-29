@@ -7,29 +7,11 @@
 
 [resource]
 script = ExtResource("3_p7guf")
-inverse_scale_factor = 32.0
 entity_fgd = ExtResource("2_gp7i4")
-entity_name_property = ""
-entity_smoothing_property = "_phong"
-entity_smoothing_angle_property = "_phong_angle"
-use_groups_hierarchy = false
-base_texture_dir = "res://textures"
-texture_file_extensions = Array[String](["png", "jpg", "jpeg", "bmp", "tga", "webp"])
-clip_texture = "special/clip"
-skip_texture = "special/skip"
-origin_texture = "special/origin"
-texture_wads = Array[ExtResource("4_o4q6b")]([])
-base_material_dir = ""
-material_file_extension = "tres"
-default_material = ExtResource("1_ruga8")
-default_material_albedo_uniform = ""
-albedo_map_pattern = "%s_albedo.%s"
-normal_map_pattern = "%s_normal.%s"
-metallic_map_pattern = "%s_metallic.%s"
-roughness_map_pattern = "%s_roughness.%s"
-emission_map_pattern = "%s_emission.%s"
-ao_map_pattern = "%s_ao.%s"
-height_map_pattern = "%s_height.%s"
-orm_map_pattern = "%s_orm.%s"
-save_generated_materials = true
-uv_unwrap_texel_size = 2.0
+entity_node_groups = Array[String](["ENTITY"])
+base_material_dir = "res://materials"
+default_material_albedo_uniform = "albedo"
+shader_material_uniform_map_patterns = Dictionary[String, String]({
+"normal": "%s_n"
+})
+save_generated_materials = false

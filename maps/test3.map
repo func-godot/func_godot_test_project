@@ -1,0 +1,21 @@
+// Game: FuncGodot
+// Format: Valve
+// entity 0
+{
+"mapversion" "220"
+"wad" ""
+"classname" "worldspawn"
+}
+// entity 1
+{
+"classname" "func_detail"
+// brush 0
+{
+( 0 -128 0 ) ( 0 -127 0 ) ( 0 -128 1 ) oldo_tile0d [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 0 -128 0 ) ( 0 -128 1 ) ( 1 -128 0 ) oldo_tile0d [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 0 -128 0 ) ( 1 -128 0 ) ( 0 -127 0 ) oldo_tile0d [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( 128 0 128 ) ( 128 1 128 ) ( 129 0 128 ) oldo_tile0d [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( 128 0 192 ) ( 129 0 192 ) ( 128 0 193 ) oldo_tile0d [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 128 0 192 ) ( 128 0 193 ) ( 128 1 192 ) oldo_tile0d [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+}
+}

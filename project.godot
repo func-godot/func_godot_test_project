@@ -14,7 +14,7 @@ config/name="FuncGodot"
 config/tags=PackedStringArray("3d", "func_godot", "tests")
 config/use_custom_user_dir=true
 config/custom_user_dir_name="func_godot"
-config/features=PackedStringArray("4.4", "Forward Plus")
+config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
 
 [editor_plugins]

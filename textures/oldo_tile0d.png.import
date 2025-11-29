@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://sadnlksodm5n"
-path.s3tc="res://.godot/imported/origin.png-5b46ee8bd346b17e4dc76ef95ba01cf1.s3tc.ctex"
+uid="uid://dntkyuyshshu7"
+path.s3tc="res://.godot/imported/oldo_tile0d.png-10ab5190597d91b96b6dd0ddf8f33a93.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,14 +11,16 @@ metadata={
 
 [deps]
 
-source_file="res://textures/origin.png"
-dest_files=["res://.godot/imported/origin.png-5b46ee8bd346b17e4dc76ef95ba01cf1.s3tc.ctex"]
+source_file="res://textures/oldo_tile0d.png"
+dest_files=["res://.godot/imported/oldo_tile0d.png-10ab5190597d91b96b6dd0ddf8f33a93.s3tc.ctex"]
 
 [params]
 
 compress/mode=2
 compress/high_quality=false
 compress/lossy_quality=0.7
+compress/uastc_level=0
+compress/rdo_quality_loss=0.0
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
@@ -26,6 +28,10 @@ mipmaps/generate=true
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""
+process/channel_remap/red=0
+process/channel_remap/green=1
+process/channel_remap/blue=2
+process/channel_remap/alpha=3
 process/fix_alpha_border=true
 process/premult_alpha=false
 process/normal_map_invert_y=false
